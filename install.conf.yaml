@@ -1,5 +1,53 @@
+- defaults:
+    link:
+      relink: true
+
 - clean: ['~']
 
 - link:
+    ~/.aws/cli: aws/cli
+    ~/.gitconfig: git/gitconfig
+    ~/.gitignore_global: git/gitignore
+    ~/.zlogin: zsh/zlogin
+    ~/.zlogout: zsh/zlogout
+    ~/.zpreztorc: zsh/zpreztorc
+    ~/.zprofile: zsh/zprofile
+    ~/.zshenv: zsh/zshenv
+    ~/.zshrc: zsh/zshrc
 
+- brew:
+    - awscli
+    - composer
+    - fzf
+    - gh
+    - htop
+    - jq
+    - lsd
+    - mariadb
+    - mkcert
+    - neofetch
+    - neovim
+    - node
+    - nvm
+    - pygitup
+    - rsync
+    - yarn
+    - youtube-dl
+    - zsh
 
+- cask:
+    - bitwarden
+    - docker
+    - font-jetbrains-mono
+    - google-drive
+    - iterm2
+    - openvpn-connect
+    - plex
+    - sequel-ace
+    - visual-studio-code
+    - vlc
+
+- shell:
+  - [git submodule update --init --recursive, Installing submodules]
+  - [defaults write com.apple.dock autohide-time-modifier -float 0.25; killall Dock, Updating dock animation]
+  - [composer global require "squizlabs/php_codesniffer=*", Installing PHP Code Sniffer]

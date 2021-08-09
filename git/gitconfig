@@ -1,0 +1,81 @@
+[user]
+    useConfigOnly = true
+
+[core]
+    excludesfile = ~/.gitignore_global
+    autocrlf = input
+    quotepath = false
+    filemode = false
+    pager = less -r
+    autocrlf = input
+    editor = code --wait
+
+[alias]
+    lg = log --pretty=format:'%C(yellow)%h %Creset%ar%C(magenta)%d %Cgreen%s%Creset %Cblue[%an]' --graph --abbrev-commit
+    ls = log --pretty=format:"%C(yellow)%h%C(magenta)%d\\ %Creset%s%Cblue\\ [%cn]" --decorate
+    ll = log --pretty=format:"%C(yellow)%h%C(magenta)%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
+    st = status -sb
+    ci = commit
+    br = branch
+    ba = branch -va
+    co = checkout
+    cob = checkout -b
+    df = diff --word-diff
+    diff = diff --word-diff
+    fl = log -u
+    sl = stash list
+    sa = stash apply
+    ss = stash save
+    mg = merge --no-edit
+    #up = !git fetch && git rebase --autostash FETCH_HEAD
+    save = !git add -A && git commit -m 'SAVEPOINT'
+    wip = commit -am "WIP"
+    undo = reset HEAD~1 --mixed
+    amend = commit -a --amend
+    showtool = "!f() { git difftool $1^ $1; }; f"
+    added = difftool --cached
+
+    # list branches sorted by last modified
+    bls = "!git for-each-ref --sort='-authordate' --format='%(authordate)%09%(objectname:short)%09%(refname)' refs/heads | sed -e 's@refs/heads/@@'"
+
+[color]
+    branch = auto
+    diff = auto
+    status = auto
+    ui = 1
+
+[color "branch"]
+    current = red reverse
+    local = blue
+    remote = green
+
+[color "diff"]
+    meta = yellow bold
+    frag = magenta bold
+    old = red bold
+    new = green bold
+    tool = icdiff
+
+[color "status"]
+    added = yellow
+    changed = green
+    untracked = cyan
+
+[push]
+    default = simple
+    followTags = true
+
+[pull]
+    default = current
+
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+
+# Allow local customizations in the .gitconfig_local file
+[include]
+	path = ~/.gitconfig_local
+[git-up "rebase"]
+	auto = false
