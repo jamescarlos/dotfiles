@@ -14,6 +14,8 @@
     ~/.zprofile: zsh/zprofile
     ~/.zshenv: zsh/zshenv
     ~/.zshrc: zsh/zshrc
+    ~/.fzf.bash: fzf/fzf.bash
+    ~/.fzf.zsh: fzf/fzf.zsh
 
 - brew:
     - awscli
