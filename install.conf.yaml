@@ -6,6 +6,7 @@
 
 - link:
     ~/.aws/cli: aws/cli
+    ~/.config/atuin/config.toml: atuin/config.toml
     ~/.gitconfig: git/gitconfig
     ~/.gitignore_global: git/gitignore
     ~/.zlogin: zsh/zlogin
