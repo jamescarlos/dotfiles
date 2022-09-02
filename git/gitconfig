@@ -1,8 +1,10 @@
 [user]
     useConfigOnly = true
+	name = James Carlos
+	email = james@jamescarlos.com
 
 [core]
-    excludesfile = ~/.gitignore_global
+	excludesfile = /Users/james/.gitignore_global
     autocrlf = input
     quotepath = false
     filemode = false
@@ -26,7 +28,7 @@
     sl = stash list
     sa = stash apply
     ss = stash save
-    mg = merge --no-edit
+    mg = merge --no-edit --no-ff
     #up = !git fetch && git rebase --autostash FETCH_HEAD
     save = !git add -A && git commit -m 'SAVEPOINT'
     wip = commit -am "WIP"
@@ -34,6 +36,7 @@
     amend = commit -a --amend
     showtool = "!f() { git difftool $1^ $1; }; f"
     added = difftool --cached
+    td = "!git for-each-ref --format=\"%(taggerdate): %(refname)\" --sort=-taggerdate refs/tags"
 
     # list branches sorted by last modified
     bls = "!git for-each-ref --sort='-authordate' --format='%(authordate)%09%(objectname:short)%09%(refname)' refs/heads | sed -e 's@refs/heads/@@'"
@@ -79,3 +82,23 @@
 	path = ~/.gitconfig_local
 [git-up "rebase"]
 	auto = false
+[diff]
+	tool = meld
+[difftool "meld"]
+	cmd = meld "$LOCAL" "$REMOTE"
+[difftool]
+	prompt = false
+[merge]
+	tool = vscode
+[mergetool "vscode"]
+	cmd = code --wait --new-window $MERGED
+[mergetool]
+	keepBackup = false
+[init]
+	defaultBranch = master
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true

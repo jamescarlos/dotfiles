@@ -10,7 +10,9 @@ KEYTIMEOUT=1
 export HISTFILESIZE=1000000000
 export HISTSIZE=1000000000
 export HISTTIMEFORMAT="[%F %T] "
-setopt INC_APPEND_HISTORY
+setopt INC_APPEND_HISTORY_TIME
+setopt HIST_REDUCE_BLANKS
+setopt HIST_SAVE_NO_DUPS
 setopt EXTENDED_HISTORY
 setopt HIST_FIND_NO_DUPS
 setopt HIST_IGNORE_ALL_DUPS
@@ -31,3 +33,7 @@ export NVM_DIR="$HOME/.nvm"
   [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
   [ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
   [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+autoload -U +X bashcompinit && bashcompinit
+complete -o nospace -C /usr/local/bin/terraform terraform
+eval "$(atuin init zsh)"

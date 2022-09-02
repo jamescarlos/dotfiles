@@ -2,7 +2,7 @@
     link:
       relink: true
 
-- clean: ['~']
+- clean: ["~"]
 
 - link:
     ~/.aws/cli: aws/cli
@@ -16,12 +16,22 @@
     ~/.zshrc: zsh/zshrc
     ~/.fzf.bash: fzf/fzf.bash
     ~/.fzf.zsh: fzf/fzf.zsh
+    ~/.profile: profile
+    ~/.bashrc: bashrc
 
 - brew:
+    - act
+    - atuin
     - awscli
     - composer
+    - ctop
+    - drone-cli
     - fzf
+    - gdrive
     - gh
+    - go
+    - gphotosuploader/tap/gphotos-uploader-cli
+    - git-flow
     - htop
     - jq
     - lsd
@@ -29,10 +39,13 @@
     - mkcert
     - neofetch
     - neovim
+    - ngrok
     - node
     - nvm
+    - php
     - pygitup
     - rsync
+    - terraform
     - yarn
     - youtube-dl
     - zsh
@@ -43,13 +56,23 @@
     - font-jetbrains-mono
     - google-drive
     - iterm2
+    - meld
     - openvpn-connect
     - plex
     - sequel-ace
     - visual-studio-code
     - vlc
+    - linearmouse
+    - stats
+    - signal
 
 - shell:
-  - [git submodule update --init --recursive, Installing submodules]
-  - [defaults write com.apple.dock autohide-time-modifier -float 0.25; killall Dock, Updating dock animation]
-  - [composer global require "squizlabs/php_codesniffer=*", Installing PHP Code Sniffer]
+    - [git submodule update --init --recursive, Installing submodules]
+    - [
+        defaults write com.apple.dock autohide-time-modifier -float 0.25; killall Dock,
+        Updating dock animation,
+      ]
+    - [
+        composer global require "squizlabs/php_codesniffer=*",
+        Installing PHP Code Sniffer,
+      ]
